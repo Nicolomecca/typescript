@@ -37,7 +37,7 @@ const ArticleList = () => {
   return (
     <Row>
       {articles.map((article) => (
-        <Col xs={12} sm={6} md={4} lg={2} key={article.id}>
+        <Col  key={article.id}>
           <SingleArticle
             id={article.id}
             title={article.title}

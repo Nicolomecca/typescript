@@ -16,8 +16,8 @@ const SingleArticle = ({ id, title, date, image }: SingleArticleProps) => {
   };
 
   return (
-    <Card>
-      <Card.Img variant="top" src={image} />
+    <Card >
+        <Card.Img variant="top" src={image} style={{ height: '150px' }} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{date}</Card.Text>
