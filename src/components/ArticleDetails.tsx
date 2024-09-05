@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Card } from "react-bootstrap";
 
 const ArticleDetail = () => {
   interface Article {
     title: string;
-    coverImage: string;
+    image_url: string;
     content: string;
     publishedAt: string;
   }
@@ -19,7 +20,7 @@ const ArticleDetail = () => {
   }, [id]);
 
   const fetchArticle = () => {
-    fetch(`https://api.spaceflightnewsapi.net/v4/article/${id}`)
+    fetch(`https://api.spaceflightnewsapi.net/v4/articles/${id}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -39,16 +40,23 @@ const ArticleDetail = () => {
   };
 
   return (
-    <div className="article-detail">
+    <div>
       {loading && <div>Loading...</div>}
       {error && <div>{error}</div>}
       {!article && !loading && !error && <div>Articolo non trovato...</div>}
       {article && (
         <>
-          <h1>{article.title}</h1>
-          <img src={article.coverImage} alt={article.title} />
-          <p>{article.content}</p>
-          <p>Published on: {article.publishedAt}</p>
+          <Card >
+            <Card.Img variant="top" src={article.image_url} style={{ width: '100px' }}
+            />
+            <Card.Body>
+              <Card.Title>{article.title}</Card.Title>
+              <Card.Text>
+                {article.content}
+                {article.publishedAt}
+              </Card.Text>
+            </Card.Body>
+          </Card>
         </>
       )}
     </div>

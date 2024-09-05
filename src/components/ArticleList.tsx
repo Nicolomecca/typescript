@@ -16,7 +16,7 @@ const ArticleList = () => {
   }, []);
 
   const fetchArticles = () => {
-    fetch("https://api.spaceflightnewsapi.net/v4/article")
+    fetch("https://api.spaceflightnewsapi.net/v4/articles")
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -25,7 +25,7 @@ const ArticleList = () => {
         }
       })
       .then((data) => {
-        setArticles(data);
+        setArticles(data.results);
       })
       .catch((err) => {
         console.log("Error fetching articles:", err);
@@ -33,10 +33,11 @@ const ArticleList = () => {
   };
 
   return (
-    <div className="article-list">
+    <div >
       {articles.map((article) => (
         <SingleArticle
           key={article.id}
+          id={article.id}
           title={article.title}
           date={article.publishedAt}
           image={article.coverImage}
