@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import SingleArticle from "./SingleArticle";
+import { Row, Col } from "react-bootstrap";
 
 interface Article {
-  id: string;
-  title: string;
-  publishedAt: string;
-  coverImage: string;
+    id: string
+    title: string;
+    image_url: string;
+    content: string;
+    publishedAt: string;
 }
 
 const ArticleList = () => {
@@ -33,18 +35,18 @@ const ArticleList = () => {
   };
 
   return (
-    <div >
+    <Row>
       {articles.map((article) => (
-        <SingleArticle
-          key={article.id}
-          id={article.id}
-          title={article.title}
-          date={article.publishedAt}
-          image={article.coverImage}
-         
-        />
+        <Col xs={12} sm={6} md={4} lg={2} key={article.id}>
+          <SingleArticle
+            id={article.id}
+            title={article.title}
+            date={article.publishedAt}
+            image={article.image_url}
+          />
+        </Col>
       ))}
-    </div>
+    </Row>
   );
 };
 

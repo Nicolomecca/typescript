@@ -1,3 +1,4 @@
+// src/components/ArticleDetail.tsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Card } from "react-bootstrap";
@@ -46,9 +47,8 @@ const ArticleDetail = () => {
       {!article && !loading && !error && <div>Articolo non trovato...</div>}
       {article && (
         <>
-          <Card >
-            <Card.Img variant="top" src={article.image_url} style={{ width: '100px' }}
-            />
+          <Card>
+            <Card.Img variant="top" src={article.image_url} style={{ width: '100px' }} />
             <Card.Body>
               <Card.Title>{article.title}</Card.Title>
               <Card.Text>

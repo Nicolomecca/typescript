@@ -1,12 +1,16 @@
+// src/components/ArticlePage.tsx
+import { Container, Row, Col } from 'react-bootstrap';
 import ArticleList from './ArticleList';
-import ArticleDetails from './ArticleDetails';
 
 const ArticlePage = () => {
   return (
-    <div >
-      <ArticleList />
-      <ArticleDetails />
-    </div>
+    <Container>
+      <Row>
+        <Col xs={12} md={10} lg={8} className="mx-auto">
+          <ArticleList />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

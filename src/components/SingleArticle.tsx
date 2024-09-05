@@ -2,18 +2,17 @@ import { Card, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 interface SingleArticleProps {
-  id: string; 
+  id: string;
   title: string;
   date: string;
   image: string;
 }
 
-// Definizione del componente come funzione normale
 const SingleArticle = ({ id, title, date, image }: SingleArticleProps) => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleViewDetails = () => {
-    navigate(`/articles/${id}`); 
+    navigate(`/articles/${id}`);
   };
 
   return (
